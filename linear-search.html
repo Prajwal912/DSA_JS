@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linear search</title>
+
+</head>
+<body>
+
+    <input type="text" id="finding">
+    <button onclick="searchEl()">search</button>
+    <script>
+function searchEl(){
+
+
+    let arr = [2,6,9,10,8,22,11];
+    let find = document.getElementById("finding").value
+    let pos = undefined;
+    arr.map((val,i) => {
+      if(arr[i] == find){
+        pos = i;
+      }
+    })
+    console.log(pos)
+    if(!pos){
+   console.log("chutiye sahi value daal")
+    }else{
+        console.log('your position is ' + pos)
+    }
+}
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    </script>
+</body>
+</html>
