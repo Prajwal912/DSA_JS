@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>circur queue</title>
+  </head>
+  <body>
+    <script>
+      class Queue {
+        constructor(size) {
+          //max is 5
+          this.max = size;
+          //items has 5 size limit but inside array
+          this.items = new Array(size); //this means arr = []
+          this.currentSize = 0;
+          this.rear = -1;
+          this.front = -1;  
+        }
+
+        //val back se add krne ke liye
+        enqueue(val) {
+          // if 0 != 5 then rear mei ek index increase ho jayegi
+          if (this.currentSize != this.max) {
+            //checking for val after 5 or not  
+
+            // console.log(this.rear, "rear")
+            // console.log(this.max, "max")
+
+            //5 ke baad rear ko 0 set krna padega and initial val pe reset ho jayega
+            if (this.rear == this.max-1) { 
+                this.rear = 0;
+                console.log("hey", this.rear)
+            } else {
+              //back se ek val add hui
+              this.rear++;
+            }
+
+            //then items arr mei rear ki value push kr di
+            this.items[this.rear] = val;
+            //then currentsize is also increased
+            this.currentSize++;
+
+            if ((this.front == -1)) {
+              this.front = this.rear;
+            }
+          }
+        }
+
+        deque(){
+            if(this.currentSize!=0){
+                this.items[this.front] = null;
+                if(this.front == this.max-1){
+                    this.front = 0;
+                }else{
+                    this.front++;
+                }
+                this.currentSize--;
+            }else{
+                this.front=-1;
+                this.rear=-1;
+                console.log("queue is empty");
+            }
+        }
+      }
+      //5 capacity
+      let queue = new Queue(5);
+      queue.enqueue(2);
+      queue.enqueue(9);
+      queue.enqueue(4);
+      queue.enqueue(3);
+      queue.enqueue(10);
+      queue.enqueue(11);
+      queue.enqueue(12);
+      queue.enqueue(1);
+
+      queue.deque()
+      queue.deque()
+      queue.deque()
+              console.log(queue);
+
+
+
+    </script>
+
+    
+  </body>
+</html>
